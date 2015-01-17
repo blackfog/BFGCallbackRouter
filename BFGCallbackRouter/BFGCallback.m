@@ -7,7 +7,6 @@
 //
 
 #import "BFGCallback.h"
-#import "BFGCallbackError.h"
 
 static NSString * const ErrorCodeParameter = @"errorCode";
 static NSString * const ErrorMessageParameter = @"errorMessage";
@@ -24,26 +23,22 @@ static NSString * const ErrorMessageParameter = @"errorMessage";
 
 #pragma mark - Public methods
 
-// TODO: need to show proper error handling and how this might interact with the actual view controller
-
-// TODO: test to make sure this doesn't bork pre-encoded paramters if we're adding new ones
-- (BFGCallbackError *)performOnSuccessCallbackWithAdditionalParameters:(NSDictionary *)additionalParameters {
-    if (!self.onSuccess) return self.noError;
+- (BOOL)performOnSuccessCallbackWithAdditionalParameters:(NSDictionary *)additionalParameters {
+    if (!self.onSuccess) return YES;
     
     NSURL *url = additionalParameters ? [self addQueryParameters:additionalParameters toURL:self.onSuccess] : self.onSuccess;
     return [self executeCallbackWithURL:url];
 }
 
-- (BFGCallbackError *)performOnCancelCallback {
-    if (!self.onCancel) return self.noError;
+- (BOOL)performOnCancelCallback {
+    if (!self.onCancel) return YES;
     return [self executeCallbackWithURL:self.onCancel];
 }
 
-// TODO: test to make sure this doesn't bork pre-encoded paramters when we add the error information
-- (BFGCallbackError *)performOnErrorCallbackWithCode:(NSInteger)code message:(NSString *)message {
-    if (!self.onError) return self.noError;
+- (BOOL)performOnErrorCallbackWithCode:(NSInteger)code message:(NSString *)message {
+    if (!self.onError) return YES;
     
-    NSURL *url = [self addQueryParameters:@{ ErrorCodeParameter: @(code), ErrorMessageParameter: message } toURL:self.onError];
+    NSURL *url = [self addQueryParameters:@{ ErrorCodeParameter: [@(code) stringValue], ErrorMessageParameter: message } toURL:self.onError];
     return [self executeCallbackWithURL:url];
 }
 
@@ -62,20 +57,16 @@ static NSString * const ErrorMessageParameter = @"errorMessage";
     return [components URL];
 }
 
-- (BFGCallbackError *)noError {
-    return [BFGCallbackError errorWithError:BFGCallbackErrorNone];
-}
-
-- (BFGCallbackError *)executeCallbackWithURL:(NSURL *)url {
+- (BOOL)executeCallbackWithURL:(NSURL *)url {
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             [[UIApplication sharedApplication] openURL:url];
         });
-
-        return self.noError;
+        
+        return YES;
     }
     else {
-        return [BFGCallbackError errorWithError:BFGCallbackErrorCannotPerformCallback];
+        return NO;
     }
 }
 

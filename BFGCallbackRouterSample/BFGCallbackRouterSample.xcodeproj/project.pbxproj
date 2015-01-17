@@ -16,7 +16,6 @@
 		44CB716E1A698848000DC9BD /* BFGCallbackRouterSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CB716D1A698848000DC9BD /* BFGCallbackRouterSampleTests.m */; };
 		44EF58591A6996980024BEB7 /* BFGCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EF58571A6996980024BEB7 /* BFGCallback.m */; };
 		44EF585A1A6996980024BEB7 /* BFGCallbackRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EF58581A6996980024BEB7 /* BFGCallbackRouter.m */; };
-		44EF58601A699D0E0024BEB7 /* BFGCallbackError.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EF585F1A699D0E0024BEB7 /* BFGCallbackError.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +46,6 @@
 		44EF58581A6996980024BEB7 /* BFGCallbackRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BFGCallbackRouter.m; path = ../BFGCallbackRouter/BFGCallbackRouter.m; sourceTree = "<group>"; };
 		44EF585C1A6996DE0024BEB7 /* BFGCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFGCallback.h; path = ../BFGCallbackRouter/BFGCallback.h; sourceTree = "<group>"; };
 		44EF585D1A6996DE0024BEB7 /* BFGCallbackRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFGCallbackRouter.h; path = ../BFGCallbackRouter/BFGCallbackRouter.h; sourceTree = "<group>"; };
-		44EF585E1A699D0E0024BEB7 /* BFGCallbackError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFGCallbackError.h; path = ../BFGCallbackRouter/BFGCallbackError.h; sourceTree = "<group>"; };
-		44EF585F1A699D0E0024BEB7 /* BFGCallbackError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFGCallbackError.m; path = ../BFGCallbackRouter/BFGCallbackError.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +133,6 @@
 				44EF58571A6996980024BEB7 /* BFGCallback.m */,
 				44EF585D1A6996DE0024BEB7 /* BFGCallbackRouter.h */,
 				44EF58581A6996980024BEB7 /* BFGCallbackRouter.m */,
-				44EF585E1A699D0E0024BEB7 /* BFGCallbackError.h */,
-				44EF585F1A699D0E0024BEB7 /* BFGCallbackError.m */,
 			);
 			name = BFGCallbackRouter;
 			sourceTree = "<group>";
@@ -245,7 +240,6 @@
 				44CB715A1A698848000DC9BD /* ViewController.m in Sources */,
 				44EF58591A6996980024BEB7 /* BFGCallback.m in Sources */,
 				44EF585A1A6996980024BEB7 /* BFGCallbackRouter.m in Sources */,
-				44EF58601A699D0E0024BEB7 /* BFGCallbackError.m in Sources */,
 				44CB71571A698848000DC9BD /* AppDelegate.m in Sources */,
 				44CB71541A698848000DC9BD /* main.m in Sources */,
 			);

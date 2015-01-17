@@ -6,10 +6,7 @@
 //  Copyright (c) 2015 Black Fog Interactive. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@class BFGCallbackAction;
-@class BFGCallbackError;
+@import UIKit;
 
 @interface BFGCallback : NSObject
 
@@ -21,8 +18,15 @@
 @property (nonatomic, strong) NSURL *onError;
 @property (nonatomic, copy) NSDictionary *parameters;
 
-- (BFGCallbackError *)performOnSuccessCallbackWithAdditionalParameters:(NSDictionary *)additionalParameters;
-- (BFGCallbackError *)performOnCancelCallback;
-- (BFGCallbackError *)performOnErrorCallbackWithCode:(NSInteger)code message:(NSString *)message;
+- (BOOL)performOnSuccessCallbackWithAdditionalParameters:(NSDictionary *)additionalParameters;
+- (BOOL)performOnCancelCallback;
+- (BOOL)performOnErrorCallbackWithCode:(NSInteger)code message:(NSString *)message;
+
+@end
+
+@protocol BFGCallbackDelegate <NSObject>
+
+@required
+- (void)handleCallback:(BFGCallback *)callback;
 
 @end

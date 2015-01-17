@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "BFGCallbackRouter.h"
 #import "BFGCallback.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,7 @@
 
 @implementation AppDelegate
 
+@synthesize window;
 @synthesize router;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -26,43 +28,40 @@
     self.router = [[BFGCallbackRouter alloc] init];
     
     // router://x-callback-url/hello
+     __weak typeof(self) weakSelf = self;
+    
     [self.router addAction:@"hello" scheme:@"router" handler:^(BFGCallback *callback) {
-        NSLog(@"Hello, World!");
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf showAlertWithTitle:@"Callback Received!" message:@"Hello, World!"];
     }];
     
     // router://x-callback-url/echo?foo=bar&baz=1
-    [self.router addAction:@"echo" scheme:@"router" handler:^(BFGCallback *callback) {
-        NSLog(@"Params: %@", callback.parameters);
-    }];
-    
-    // router://x-callback-url/callback?type=success&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fmicrosoft.com
-    // router://x-callback-url/callback?type=cancel&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fmicrosoft.com
-    // router://x-callback-url/callback?type=error&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fmicrosoft.com
-    [self.router addAction:@"callback" scheme:@"router" handler:^(BFGCallback *callback) {
-        NSLog(@"Callback from “%@”", callback.source);
-        
-        if (callback.parameters[@"type"]) {
-            if ([callback.parameters[@"type"] isEqualToString:@"success"]) {
-                [callback performOnSuccessCallbackWithAdditionalParameters:@{ @"x": @"1" }];
-            }
-            else if ([callback.parameters[@"type"] isEqualToString:@"cancel"]) {
-                [callback performOnCancelCallback];
-            }
-            else if ([callback.parameters[@"type"] isEqualToString:@"error"]) {
-                [callback performOnErrorCallbackWithCode:999 message:@"test"];
-            }
-        }
+    [self.router addAction:@"echo" scheme:@"router" notificationName:ApplicationDidReceiveEchoNotification];
+     
+    // router://x-callback-url/callback?type=success&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fgithub.com
+    // router://x-callback-url/callback?type=cancel&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fgithub.com
+    // router://x-callback-url/callback?type=error&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fgithub.com
+    [self.router addAction:@"callback" scheme:@"router" delegate:(ViewController *)window.rootViewController];
+     
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [self.router routeURL:url errorHandler:^(BFGCallbackError error) {
+        [self showAlertWithTitle:@"Callback Error" message:[NSString stringWithFormat:@"Invalid URL callback (%ld).", (long)error]];
     }];
     
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    [self.router routeURL:url errorHandler:^(BFGCallbackError *error) {
-        NSLog(@"Callback Error: %@", error);
-    }];
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     
-    return YES;
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:NULL]];
+    
+    [self.window.rootViewController presentViewController:alert animated:YES completion:NULL];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

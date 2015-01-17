@@ -7,18 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BFGCallback.h"
 
-@class BFGCallback;
-@class BFGCallbackError;
+typedef NS_ENUM(NSUInteger, BFGCallbackError) {
+    BFGCallbackErrorInvalidURL = 400,
+    BFGCallbackErrorUnknownScheme = 401,
+    BFGCallbackErrorUnknownAction = 402
+};
 
-typedef void(^BFGCallbackRouterActionHandler)(BFGCallback *callback);
-typedef void(^BFGCallbackErrorHandler)(BFGCallbackError *error);
+typedef void(^BFGCallbackActionHandler)(BFGCallback *callback);
+typedef void(^BFGCallbackErrorHandler)(BFGCallbackError error);
 
 @interface BFGCallbackRouter : NSObject
 
 @property (nonatomic, getter=isRoutingEnabled) BOOL routingEnabled;
+@property (nonatomic) BOOL allowBareScheme;
 
-- (void)addAction:(NSString *)action scheme:(NSString *)scheme handler:(BFGCallbackRouterActionHandler)handler;
+- (void)addAction:(NSString *)action scheme:(NSString *)scheme notificationName:(NSString *)notificationName;
+- (void)addAction:(NSString *)action scheme:(NSString *)scheme delegate:(id<BFGCallbackDelegate>)delegate;
+- (void)addAction:(NSString *)action scheme:(NSString *)scheme handler:(BFGCallbackActionHandler)handler;
 - (void)routeURL:(NSURL *)url errorHandler:(BFGCallbackErrorHandler)errorHandler;
 
 @end

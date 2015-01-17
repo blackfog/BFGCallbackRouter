@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BFGCallback.h"
 
-@interface ViewController : UIViewController
+FOUNDATION_EXTERN NSString * const ApplicationDidReceiveEchoNotification;
 
+@interface ViewController : UIViewController <BFGCallbackDelegate>
+
+@property (nonatomic, weak) IBOutlet UILabel *label;
 
 @end
 
