@@ -30,8 +30,8 @@ static NSString * const ErrorParameter = @"x-error";
     self = [super init];
     
     if (self) {
-        self.routingEnabled = YES;
-        self.routes = [NSMutableDictionary dictionary];
+        _routingEnabled = YES;
+        _routes = [NSMutableDictionary dictionary];
     }
     
     return self;
@@ -44,7 +44,9 @@ static NSString * const ErrorParameter = @"x-error";
         self.routes[scheme] = [NSMutableDictionary dictionary];
     }
     
-    self.routes[scheme][action] = handler;
+    NSString *pathAction = [@"/" stringByAppendingString:action]; // this is how it will be parsed
+    
+    self.routes[scheme][pathAction] = handler;
 }
 
 - (void)routeURL:(NSURL *)url errorHandler:(BFGCallbackErrorHandler)errorHandler {

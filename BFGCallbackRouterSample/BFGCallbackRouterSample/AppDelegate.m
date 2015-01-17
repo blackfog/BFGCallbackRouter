@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BFGCallbackRouter.h"
+#import "BFGCallback.h"
 
 @interface AppDelegate ()
 
@@ -24,11 +25,43 @@
     
     self.router = [[BFGCallbackRouter alloc] init];
     
+    // router://x-callback-url/hello
+    [self.router addAction:@"hello" scheme:@"router" handler:^(BFGCallback *callback) {
+        NSLog(@"Hello, World!");
+    }];
+    
+    // router://x-callback-url/echo?foo=bar&baz=1
+    [self.router addAction:@"echo" scheme:@"router" handler:^(BFGCallback *callback) {
+        NSLog(@"Params: %@", callback.parameters);
+    }];
+    
+    // router://x-callback-url/callback?type=success&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fmicrosoft.com
+    // router://x-callback-url/callback?type=cancel&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fmicrosoft.com
+    // router://x-callback-url/callback?type=error&x-source=Foo&x-success=http%3A%2F%2Fapple.com&x-cancel=http%3A%2F%2Fgoogle.com&x-error=http%3A%2F%2Fmicrosoft.com
+    [self.router addAction:@"callback" scheme:@"router" handler:^(BFGCallback *callback) {
+        NSLog(@"Callback from “%@”", callback.source);
+        
+        if (callback.parameters[@"type"]) {
+            if ([callback.parameters[@"type"] isEqualToString:@"success"]) {
+                [callback performOnSuccessCallbackWithAdditionalParameters:@{ @"x": @"1" }];
+            }
+            else if ([callback.parameters[@"type"] isEqualToString:@"cancel"]) {
+                [callback performOnCancelCallback];
+            }
+            else if ([callback.parameters[@"type"] isEqualToString:@"error"]) {
+                [callback performOnErrorCallbackWithCode:999 message:@"test"];
+            }
+        }
+    }];
+    
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    // TODO
+    [self.router routeURL:url errorHandler:^(BFGCallbackError *error) {
+        NSLog(@"Callback Error: %@", error);
+    }];
+    
     return YES;
 }
 

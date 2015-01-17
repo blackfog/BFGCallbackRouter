@@ -10,13 +10,13 @@
 
 @implementation BFGCallbackError
 
-@synthesize error;
+@synthesize error = _error;
 
 - (instancetype)init {
     self = [super init];
     
     if (self) {
-        self.error = BFGCallbackErrorNone;
+        _error = BFGCallbackErrorNone;
     }
     
     return self;

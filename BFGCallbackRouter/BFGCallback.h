@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSURL *onSuccess;
 @property (nonatomic, strong) NSURL *onCancel;
 @property (nonatomic, strong) NSURL *onError;
-@property (nonatomic, strong) NSDictionary *parameters;
+@property (nonatomic, copy) NSDictionary *parameters;
 
 - (BFGCallbackError *)performOnSuccessCallbackWithAdditionalParameters:(NSDictionary *)additionalParameters;
 - (BFGCallbackError *)performOnCancelCallback;

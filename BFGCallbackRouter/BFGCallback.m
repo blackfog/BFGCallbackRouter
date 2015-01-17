@@ -24,6 +24,8 @@ static NSString * const ErrorMessageParameter = @"errorMessage";
 
 #pragma mark - Public methods
 
+// TODO: need to show proper error handling and how this might interact with the actual view controller
+
 // TODO: test to make sure this doesn't bork pre-encoded paramters if we're adding new ones
 - (BFGCallbackError *)performOnSuccessCallbackWithAdditionalParameters:(NSDictionary *)additionalParameters {
     if (!self.onSuccess) return self.noError;
@@ -66,7 +68,10 @@ static NSString * const ErrorMessageParameter = @"errorMessage";
 
 - (BFGCallbackError *)executeCallbackWithURL:(NSURL *)url {
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [[UIApplication sharedApplication] openURL:url];
+        });
+
         return self.noError;
     }
     else {
