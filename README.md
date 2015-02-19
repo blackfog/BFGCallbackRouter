@@ -124,9 +124,15 @@ Each method returns a `BOOL` indicating whether the callback was successful or c
 
 Copy `BFGCallback.[hm]` and `BFGCallbackRouter.[hm]` into your project.
 
-## Support for CocoaPods and/or Swift
+## CocoaPods
 
-At this time, there are no plans to make the library available through CocoaPods (it's four files). The library should work fine with Swift through a bridging header (untested).
+`````ruby
+pod 'BFGCallbackRouter', '~> 1.0.1'
+`````
+
+# Swift
+
+The library should work fine with Swift through a bridging header (untested).
 
 # Known Issues
 
