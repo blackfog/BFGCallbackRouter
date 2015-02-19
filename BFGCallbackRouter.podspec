@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "BFGCallbackRouter"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Simple URL router supporting the x-callback-url 1.0 DRAFT spec."
 
   s.description  = <<-DESC
@@ -73,7 +73,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/blackfog/BFGCallbackRouter.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/blackfog/BFGCallbackRouter.git", :tag => "1.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
