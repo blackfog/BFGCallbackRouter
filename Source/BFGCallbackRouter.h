@@ -10,3 +10,6 @@
 
 FOUNDATION_EXPORT double BFGCallbackRouterVersionNumber;
 FOUNDATION_EXPORT const unsigned char BFGCallbackRouterVersionString[];
+
+#import "BFGRouter.h"
+#import "BFGCallback.h"
