@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BFGCallbackRouter.h"
+#import <BFGCallbackRouter/BFGCallbackRouter.h>
 #import "ViewController.h"
 
 @interface AppDelegate ()

@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		448D699E1CDD090000E4E92A /* BFGCallbackRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448D69971CDD08FF00E4E92A /* BFGCallbackRouter.framework */; };
 		448D699F1CDD090000E4E92A /* BFGCallbackRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 448D69971CDD08FF00E4E92A /* BFGCallbackRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		448D69A41CDD0A3800E4E92A /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 448D698E1CDD088E00E4E92A /* Source */; };
 		448D69B11CDD138A00E4E92A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69AB1CDD138A00E4E92A /* AppDelegate.m */; };
 		448D69B21CDD138A00E4E92A /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 448D69AC1CDD138A00E4E92A /* Base.lproj */; };
 		448D69B41CDD138A00E4E92A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69AE1CDD138A00E4E92A /* main.m */; };
 		448D69B51CDD138A00E4E92A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69B01CDD138A00E4E92A /* ViewController.m */; };
 		448D69C01CDD13CA00E4E92A /* BFGCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69B71CDD139600E4E92A /* BFGCallback.m */; };
 		448D69C11CDD13D200E4E92A /* BFGRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69B91CDD139600E4E92A /* BFGRouter.m */; };
-		448D69C41CDD15BD00E4E92A /* BFGCallbackRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 448D69C31CDD15BD00E4E92A /* BFGCallbackRouter.h */; };
+		448D69C41CDD15BD00E4E92A /* BFGCallbackRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 448D69C31CDD15BD00E4E92A /* BFGCallbackRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		448D69EB1CDD2C9300E4E92A /* BFGCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 448D69B61CDD139600E4E92A /* BFGCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		448D69EC1CDD2C9600E4E92A /* BFGRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 448D69B81CDD139600E4E92A /* BFGRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +45,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		448D698E1CDD088E00E4E92A /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Source; path = /Users/craig/Documents/projects/BFGCallbackRouter/Source; sourceTree = "<absolute>"; };
 		448D69971CDD08FF00E4E92A /* BFGCallbackRouter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFGCallbackRouter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		448D69AA1CDD138A00E4E92A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Example-iOS/AppDelegate.h"; sourceTree = "<group>"; };
 		448D69AB1CDD138A00E4E92A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Example-iOS/AppDelegate.m"; sourceTree = "<group>"; };
@@ -133,6 +133,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448D69EB1CDD2C9300E4E92A /* BFGCallback.h in Headers */,
+				448D69EC1CDD2C9600E4E92A /* BFGRouter.h in Headers */,
 				448D69C41CDD15BD00E4E92A /* BFGCallbackRouter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,7 +220,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448D69A41CDD0A3800E4E92A /* Source in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
