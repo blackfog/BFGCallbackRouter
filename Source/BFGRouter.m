@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Black Fog Interactive. All rights reserved.
 //
 
-#import "BFGCallbackRouter.h"
+#import "BFGRouter.h"
 #import "BFGCallback.h"
 
 static NSString * const RequiredHost = @"x-callback-url";
@@ -15,13 +15,13 @@ static NSString * const SuccessParameter = @"x-success";
 static NSString * const CancelParameter = @"x-cancel";
 static NSString * const ErrorParameter = @"x-error";
 
-@interface BFGCallbackRouter ()
+@interface BFGRouter ()
 
 @property (nonatomic, strong) NSMutableDictionary *routes;
 
 @end
 
-@implementation BFGCallbackRouter
+@implementation BFGRouter
 
 @synthesize routingEnabled = _routingEnabled;
 @synthesize allowBareScheme = _allowBareScheme;

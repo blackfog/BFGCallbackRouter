@@ -7,13 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "BFGCallbackRouter.h"
+#import "BFGRouter.h"
 #import "BFGCallback.h"
 #import "ViewController.h"
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) BFGCallbackRouter *router;
+@property (nonatomic, strong) BFGRouter *router;
 
 @end
 
@@ -25,7 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.router = [[BFGCallbackRouter alloc] init];
+    self.router = [[BFGRouter alloc] init];
     
     // router://x-callback-url/hello
      __weak typeof(self) weakSelf = self;

@@ -7,11 +7,11 @@
 The router is best placed inside your application's app delegate and retained as a property.
 
 `````objective-c
-#import "BFGCallbackRouter.h"
+#import "BFGRouter.h"
 
 …
 
-@property (nonatomic, strong) BFGCallbackRouter *router;
+@property (nonatomic, strong) BFGRouter *router;
 
 …
 
@@ -22,7 +22,7 @@ The router is best placed inside your application's app delegate and retained as
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.router = [[BFGCallbackRouter alloc] init];
+    self.router = [[BFGRouter alloc] init];
 }
 `````
 
@@ -66,7 +66,7 @@ Finally, calling the `handler` variant of `-addAction` takes in a block conformi
 
 ## Routing URLs Sent to the App
 
-Inside your app delegate in the  `-application:openURL:sourceApplication:annotation:` method, call the `-routeURL:errorHandler:` method of `BFGCallbackRouter`:
+Inside your app delegate in the  `-application:openURL:sourceApplication:annotation:` method, call the `-routeURL:errorHandler:` method of `BFGRouter`:
 
 `````objective-c
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -122,17 +122,23 @@ Each method returns a `BOOL` indicating whether the callback was successful or c
 
 # Installation
 
-Copy `BFGCallback.[hm]` and `BFGCallbackRouter.[hm]` into your project.
+Copy `BFGCallback.[hm]` and `BFGRouter.[hm]` into your project.
 
 ## CocoaPods
 
 `````ruby
-pod 'BFGCallbackRouter', '~> 1.0.1'
+pod 'BFGCallbackRouter', '~> 1.1.1'
+`````
+
+## Carthage
+
+`````ruby
+github "blackfog/BFGCallbackRouter" ~> 1.1.1
 `````
 
 # Swift
 
-The library should work fine with Swift through a bridging header (untested).
+The library should work fine with Swift through a bridging header (untested). A Swift rewrite is in the cards with a Swiftier API (this will likely deprecate the Objective-C version).
 
 # Known Issues
 
