@@ -9,9 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "BFGCallback.h"
 
-FOUNDATION_EXPORT double BFGCallbackRouterVersionNumber;
-FOUNDATION_EXPORT const unsigned char BFGCallbackRouterVersionString[];
-
 typedef NS_ENUM(NSUInteger, BFGCallbackError) {
     BFGCallbackErrorInvalidURL = 400,
     BFGCallbackErrorUnknownScheme = 401,

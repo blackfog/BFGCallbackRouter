@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		448D698D1CDD088200E4E92A /* Example-iOS in Resources */ = {isa = PBXBuildFile; fileRef = 448D698C1CDD088200E4E92A /* Example-iOS */; };
-		448D698F1CDD088E00E4E92A /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 448D698E1CDD088E00E4E92A /* Source */; };
 		448D699E1CDD090000E4E92A /* BFGCallbackRouter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 448D69971CDD08FF00E4E92A /* BFGCallbackRouter.framework */; };
 		448D699F1CDD090000E4E92A /* BFGCallbackRouter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 448D69971CDD08FF00E4E92A /* BFGCallbackRouter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		448D69A41CDD0A3800E4E92A /* Source in Resources */ = {isa = PBXBuildFile; fileRef = 448D698E1CDD088E00E4E92A /* Source */; };
+		448D69B11CDD138A00E4E92A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69AB1CDD138A00E4E92A /* AppDelegate.m */; };
+		448D69B21CDD138A00E4E92A /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 448D69AC1CDD138A00E4E92A /* Base.lproj */; };
+		448D69B31CDD138A00E4E92A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 448D69AD1CDD138A00E4E92A /* Info.plist */; };
+		448D69B41CDD138A00E4E92A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69AE1CDD138A00E4E92A /* main.m */; };
+		448D69B51CDD138A00E4E92A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69B01CDD138A00E4E92A /* ViewController.m */; };
+		448D69C01CDD13CA00E4E92A /* BFGCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69B71CDD139600E4E92A /* BFGCallback.m */; };
+		448D69C11CDD13D200E4E92A /* BFGCallbackRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 448D69B91CDD139600E4E92A /* BFGCallbackRouter.m */; };
+		448D69C21CDD13DC00E4E92A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 448D69BA1CDD139600E4E92A /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +45,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		448D698C1CDD088200E4E92A /* Example-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Example-iOS"; sourceTree = "<group>"; };
-		448D698E1CDD088E00E4E92A /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source; sourceTree = "<group>"; };
+		448D698E1CDD088E00E4E92A /* Source */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Source; path = /Users/craig/Documents/projects/BFGCallbackRouter/Source; sourceTree = "<absolute>"; };
 		448D69971CDD08FF00E4E92A /* BFGCallbackRouter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BFGCallbackRouter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		448D69AA1CDD138A00E4E92A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Example-iOS/AppDelegate.h"; sourceTree = "<group>"; };
+		448D69AB1CDD138A00E4E92A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "Example-iOS/AppDelegate.m"; sourceTree = "<group>"; };
+		448D69AC1CDD138A00E4E92A /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = "Example-iOS/Base.lproj"; sourceTree = "<group>"; };
+		448D69AD1CDD138A00E4E92A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Example-iOS/Info.plist"; sourceTree = "<group>"; };
+		448D69AE1CDD138A00E4E92A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Example-iOS/main.m"; sourceTree = "<group>"; };
+		448D69AF1CDD138A00E4E92A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "Example-iOS/ViewController.h"; sourceTree = "<group>"; };
+		448D69B01CDD138A00E4E92A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "Example-iOS/ViewController.m"; sourceTree = "<group>"; };
+		448D69B61CDD139600E4E92A /* BFGCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFGCallback.h; path = Source/BFGCallback.h; sourceTree = "<group>"; };
+		448D69B71CDD139600E4E92A /* BFGCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFGCallback.m; path = Source/BFGCallback.m; sourceTree = "<group>"; };
+		448D69B81CDD139600E4E92A /* BFGCallbackRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BFGCallbackRouter.h; path = Source/BFGCallbackRouter.h; sourceTree = "<group>"; };
+		448D69B91CDD139600E4E92A /* BFGCallbackRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BFGCallbackRouter.m; path = Source/BFGCallbackRouter.m; sourceTree = "<group>"; };
+		448D69BA1CDD139600E4E92A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = "<group>"; };
 		44CB714E1A698848000DC9BD /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,11 +81,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		448D69A81CDD136A00E4E92A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				448D69B61CDD139600E4E92A /* BFGCallback.h */,
+				448D69B71CDD139600E4E92A /* BFGCallback.m */,
+				448D69B81CDD139600E4E92A /* BFGCallbackRouter.h */,
+				448D69B91CDD139600E4E92A /* BFGCallbackRouter.m */,
+				448D69BA1CDD139600E4E92A /* Info.plist */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		448D69A91CDD137700E4E92A /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				448D69AA1CDD138A00E4E92A /* AppDelegate.h */,
+				448D69AB1CDD138A00E4E92A /* AppDelegate.m */,
+				448D69AC1CDD138A00E4E92A /* Base.lproj */,
+				448D69AD1CDD138A00E4E92A /* Info.plist */,
+				448D69AE1CDD138A00E4E92A /* main.m */,
+				448D69AF1CDD138A00E4E92A /* ViewController.h */,
+				448D69B01CDD138A00E4E92A /* ViewController.m */,
+			);
+			name = Example;
+			sourceTree = "<group>";
+		};
 		44CB71451A698847000DC9BD = {
 			isa = PBXGroup;
 			children = (
-				448D698E1CDD088E00E4E92A /* Source */,
-				448D698C1CDD088200E4E92A /* Example-iOS */,
+				448D69A91CDD137700E4E92A /* Example */,
+				448D69A81CDD136A00E4E92A /* Source */,
 				44CB714F1A698848000DC9BD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -173,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448D69C21CDD13DC00E4E92A /* Info.plist in Resources */,
 				448D69A41CDD0A3800E4E92A /* Source in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,8 +225,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				448D698D1CDD088200E4E92A /* Example-iOS in Resources */,
-				448D698F1CDD088E00E4E92A /* Source in Resources */,
+				448D69B31CDD138A00E4E92A /* Info.plist in Resources */,
+				448D69B21CDD138A00E4E92A /* Base.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448D69C01CDD13CA00E4E92A /* BFGCallback.m in Sources */,
+				448D69C11CDD13D200E4E92A /* BFGCallbackRouter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448D69B51CDD138A00E4E92A /* ViewController.m in Sources */,
+				448D69B41CDD138A00E4E92A /* main.m in Sources */,
+				448D69B11CDD138A00E4E92A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
